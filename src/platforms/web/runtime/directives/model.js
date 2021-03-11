@@ -132,7 +132,9 @@ function onCompositionEnd (e) {
 }
 
 function trigger (el, type) {
-  const e = document.createEvent('HTMLEvents')
-  e.initEvent(type, true, true)
+  var e = new Event(type, {
+    bubbles: true,
+    cancelable: true
+  });
   el.dispatchEvent(e)
 }
